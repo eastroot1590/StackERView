@@ -1,0 +1,770 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0696AA642D907D4A63E525EC0EC5182A /* Pods-StackERView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 54D122F6FC572C9777D5CC6B3C02DC0E /* Pods-StackERView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A0CC7D67FC9B7CCCB3073EFD7757EE9 /* StackERView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A79A1B22083D9317631EDA4948DA708 /* StackERView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2F687C8474DBCA958E10ACDEEE9B4B6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		39F4B1C2142E7F3F266893C9E940D2A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		3C64A34F76E5B4AFCA396844213DFD84 /* StackERView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AB79DF333D1848B33FAE6258B7FC50 /* StackERView-dummy.m */; };
+		6E6BAD37E589E6ED4529EE2EF45D4E27 /* Pods-StackERView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9810D3DB1ACF41CBF865508ABCE7F435 /* Pods-StackERView_Tests-dummy.m */; };
+		717F30AB8BBFDFD6EB22A822DD598124 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F81ABA86AC265CA54FEC564BBC026B /* ReplaceMe.swift */; };
+		8DA50CEC5655D7BCCAC576AD414B39AF /* Pods-StackERView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA045BE35C1BEEEEBE49DAB594C0E84E /* Pods-StackERView_Example-dummy.m */; };
+		977317C75C11E3AE3A7FFD66160FCA14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		BAF74B8D0A9E15D0C69063375DC34659 /* Pods-StackERView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C56FDB40AA6C5A641CD8BCD6C6ED35 /* Pods-StackERView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		909BA0CAB9C329D2DC3C03623C769A35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F798CD357A73D704324522920F2F998;
+			remoteInfo = "Pods-StackERView_Example";
+		};
+		C19F00A94E6C587F1AD2245AA4C91436 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65735594927F4C29EED6E791804E9AC8;
+			remoteInfo = StackERView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01C479A25586EA1567BA44CC40449D34 /* Pods-StackERView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-StackERView_Example.modulemap"; sourceTree = "<group>"; };
+		06A2C7773E299C24C122F5473791B33F /* StackERView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "StackERView-Info.plist"; sourceTree = "<group>"; };
+		0E135CFE1889DB13DE353033F3F07B38 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		159D26E0990BADF8939DECE137D2FBF0 /* StackERView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StackERView-prefix.pch"; sourceTree = "<group>"; };
+		16265304A964930631CB393BFE34B1E4 /* StackERView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StackERView.debug.xcconfig; sourceTree = "<group>"; };
+		2048645D761923183A5E36EB196F7472 /* Pods-StackERView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StackERView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2052C8EE459900E51455AECA551738C8 /* Pods-StackERView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StackERView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		21F81ABA86AC265CA54FEC564BBC026B /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = StackERView/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		2E83FD9C084EE74AFCC31B77317279B5 /* Pods-StackERView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StackERView_Example.release.xcconfig"; sourceTree = "<group>"; };
+		487B61BB7D0A908AB89C780B507A7EF8 /* Pods-StackERView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StackERView_Tests-Info.plist"; sourceTree = "<group>"; };
+		52A323B40AAD3EE7057380DB59AB206C /* Pods-StackERView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StackERView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		54B4D90151AAEBE2B11E66AB0BA8E4CC /* Pods-StackERView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StackERView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		54D122F6FC572C9777D5CC6B3C02DC0E /* Pods-StackERView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StackERView_Tests-umbrella.h"; sourceTree = "<group>"; };
+		608AB8E06AAA2E894E2B9800C6DF0A44 /* Pods-StackERView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StackERView_Example-frameworks.sh"; sourceTree = "<group>"; };
+		6B06DC846ABA05B956AB943A03487D6A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		707BDC8400E79E5654A453748158653A /* StackERView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StackERView.framework; path = StackERView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		86E6E1682F9FB94E9072D39A34FB7926 /* StackERView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = StackERView.modulemap; sourceTree = "<group>"; };
+		87EF37F7A341AD215180BC69A4AF9CE0 /* StackERView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StackERView.release.xcconfig; sourceTree = "<group>"; };
+		9810D3DB1ACF41CBF865508ABCE7F435 /* Pods-StackERView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StackERView_Tests-dummy.m"; sourceTree = "<group>"; };
+		9A79A1B22083D9317631EDA4948DA708 /* StackERView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StackERView-umbrella.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FCDF13869847A661B28DE049ED846F3 /* Pods-StackERView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StackERView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A5EC71C52F5A676D789F1A3B96F21F97 /* Pods-StackERView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-StackERView_Tests.modulemap"; sourceTree = "<group>"; };
+		A6648F0CDCD3F837AEB22DDFEAC5255E /* Pods-StackERView_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StackERView_Example-Info.plist"; sourceTree = "<group>"; };
+		A8AB79DF333D1848B33FAE6258B7FC50 /* StackERView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "StackERView-dummy.m"; sourceTree = "<group>"; };
+		AA045BE35C1BEEEEBE49DAB594C0E84E /* Pods-StackERView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StackERView_Example-dummy.m"; sourceTree = "<group>"; };
+		AEE314EFEAF90598BE2BBA863761A972 /* Pods_StackERView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StackERView_Tests.framework; path = "Pods-StackERView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF81C0ACA209D9333190C7CC30DA5944 /* StackERView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = StackERView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B3C56FDB40AA6C5A641CD8BCD6C6ED35 /* Pods-StackERView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StackERView_Example-umbrella.h"; sourceTree = "<group>"; };
+		D1947C633CAAAC33F46FE84325637AEC /* Pods-StackERView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StackERView_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E0A8033988EC30A27B10D4DC4DA92965 /* Pods_StackERView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StackERView_Example.framework; path = "Pods-StackERView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDF86CEA7EFDD86E833BAD5CB9EDB4D6 /* Pods-StackERView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StackERView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B5B2D5C211AECA5D2E4717918E3813B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39F4B1C2142E7F3F266893C9E940D2A5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F4E4B9F8527691D815E5FCBD4EA44E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F687C8474DBCA958E10ACDEEE9B4B6D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1ECC5A3F1A15FB84F43BF1416352E74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				977317C75C11E3AE3A7FFD66160FCA14 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B3C98885CAFD7EB46F3A7B0D013FB6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0A8033988EC30A27B10D4DC4DA92965 /* Pods_StackERView_Example.framework */,
+				AEE314EFEAF90598BE2BBA863761A972 /* Pods_StackERView_Tests.framework */,
+				707BDC8400E79E5654A453748158653A /* StackERView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0E370D8842555CA06BD1638D4252907C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				0E135CFE1889DB13DE353033F3F07B38 /* LICENSE */,
+				6B06DC846ABA05B956AB943A03487D6A /* README.md */,
+				AF81C0ACA209D9333190C7CC30DA5944 /* StackERView.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		469833D1C358658A5ED0F33EF4F0F4BB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				86E6E1682F9FB94E9072D39A34FB7926 /* StackERView.modulemap */,
+				A8AB79DF333D1848B33FAE6258B7FC50 /* StackERView-dummy.m */,
+				06A2C7773E299C24C122F5473791B33F /* StackERView-Info.plist */,
+				159D26E0990BADF8939DECE137D2FBF0 /* StackERView-prefix.pch */,
+				9A79A1B22083D9317631EDA4948DA708 /* StackERView-umbrella.h */,
+				16265304A964930631CB393BFE34B1E4 /* StackERView.debug.xcconfig */,
+				87EF37F7A341AD215180BC69A4AF9CE0 /* StackERView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/StackERView";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		673CD218A374C5228A1D44BF5D13C44C /* Pods-StackERView_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A5EC71C52F5A676D789F1A3B96F21F97 /* Pods-StackERView_Tests.modulemap */,
+				52A323B40AAD3EE7057380DB59AB206C /* Pods-StackERView_Tests-acknowledgements.markdown */,
+				9FCDF13869847A661B28DE049ED846F3 /* Pods-StackERView_Tests-acknowledgements.plist */,
+				9810D3DB1ACF41CBF865508ABCE7F435 /* Pods-StackERView_Tests-dummy.m */,
+				487B61BB7D0A908AB89C780B507A7EF8 /* Pods-StackERView_Tests-Info.plist */,
+				54D122F6FC572C9777D5CC6B3C02DC0E /* Pods-StackERView_Tests-umbrella.h */,
+				54B4D90151AAEBE2B11E66AB0BA8E4CC /* Pods-StackERView_Tests.debug.xcconfig */,
+				FDF86CEA7EFDD86E833BAD5CB9EDB4D6 /* Pods-StackERView_Tests.release.xcconfig */,
+			);
+			name = "Pods-StackERView_Tests";
+			path = "Target Support Files/Pods-StackERView_Tests";
+			sourceTree = "<group>";
+		};
+		677AA1746C45055BF9DF73F2D4048D98 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E047DE2DCD8E5E5594A9DCB1803EF6EB /* Pods-StackERView_Example */,
+				673CD218A374C5228A1D44BF5D13C44C /* Pods-StackERView_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A8C162A34D2882316333F9AF5EB7D8BA /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F24083B3200A04B8C10AEF26DF2B4A17 /* StackERView */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				A8C162A34D2882316333F9AF5EB7D8BA /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				0B3C98885CAFD7EB46F3A7B0D013FB6B /* Products */,
+				677AA1746C45055BF9DF73F2D4048D98 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E047DE2DCD8E5E5594A9DCB1803EF6EB /* Pods-StackERView_Example */ = {
+			isa = PBXGroup;
+			children = (
+				01C479A25586EA1567BA44CC40449D34 /* Pods-StackERView_Example.modulemap */,
+				2048645D761923183A5E36EB196F7472 /* Pods-StackERView_Example-acknowledgements.markdown */,
+				2052C8EE459900E51455AECA551738C8 /* Pods-StackERView_Example-acknowledgements.plist */,
+				AA045BE35C1BEEEEBE49DAB594C0E84E /* Pods-StackERView_Example-dummy.m */,
+				608AB8E06AAA2E894E2B9800C6DF0A44 /* Pods-StackERView_Example-frameworks.sh */,
+				A6648F0CDCD3F837AEB22DDFEAC5255E /* Pods-StackERView_Example-Info.plist */,
+				B3C56FDB40AA6C5A641CD8BCD6C6ED35 /* Pods-StackERView_Example-umbrella.h */,
+				D1947C633CAAAC33F46FE84325637AEC /* Pods-StackERView_Example.debug.xcconfig */,
+				2E83FD9C084EE74AFCC31B77317279B5 /* Pods-StackERView_Example.release.xcconfig */,
+			);
+			name = "Pods-StackERView_Example";
+			path = "Target Support Files/Pods-StackERView_Example";
+			sourceTree = "<group>";
+		};
+		F24083B3200A04B8C10AEF26DF2B4A17 /* StackERView */ = {
+			isa = PBXGroup;
+			children = (
+				21F81ABA86AC265CA54FEC564BBC026B /* ReplaceMe.swift */,
+				0E370D8842555CA06BD1638D4252907C /* Pod */,
+				469833D1C358658A5ED0F33EF4F0F4BB /* Support Files */,
+			);
+			name = StackERView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1475175754CE79B4FA241D04B7D9107F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A0CC7D67FC9B7CCCB3073EFD7757EE9 /* StackERView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D95374C851771954F06ADD17E725329 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0696AA642D907D4A63E525EC0EC5182A /* Pods-StackERView_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E7D06CE036DA5BD71748AB7BFFC77C4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAF74B8D0A9E15D0C69063375DC34659 /* Pods-StackERView_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		65735594927F4C29EED6E791804E9AC8 /* StackERView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D4EA52FB94ACC35EEE9B89007A891CD /* Build configuration list for PBXNativeTarget "StackERView" */;
+			buildPhases = (
+				1475175754CE79B4FA241D04B7D9107F /* Headers */,
+				191CFBD30AAE69B071ACCA999CE74856 /* Sources */,
+				4B5B2D5C211AECA5D2E4717918E3813B /* Frameworks */,
+				AEEF26CA16120727C9791A31D18D953C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StackERView;
+			productName = StackERView;
+			productReference = 707BDC8400E79E5654A453748158653A /* StackERView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6F798CD357A73D704324522920F2F998 /* Pods-StackERView_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BB0C644A120077223964BBD28D4B8EF /* Build configuration list for PBXNativeTarget "Pods-StackERView_Example" */;
+			buildPhases = (
+				2E7D06CE036DA5BD71748AB7BFFC77C4 /* Headers */,
+				F45AF75A157CCA43CA007E88AD0509AE /* Sources */,
+				5F4E4B9F8527691D815E5FCBD4EA44E3 /* Frameworks */,
+				23788A1E004A11D433B6B00F7C404BC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B6E3A19F97879377A101FE07392D5B5C /* PBXTargetDependency */,
+			);
+			name = "Pods-StackERView_Example";
+			productName = "Pods-StackERView_Example";
+			productReference = E0A8033988EC30A27B10D4DC4DA92965 /* Pods_StackERView_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		83B86E4F2B5DDC46B7B30B9B815A461C /* Pods-StackERView_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 099777E22171C4DEC073EB2111D8BD00 /* Build configuration list for PBXNativeTarget "Pods-StackERView_Tests" */;
+			buildPhases = (
+				1D95374C851771954F06ADD17E725329 /* Headers */,
+				AAD6551AFCB27260F6B4E0E19A51E21C /* Sources */,
+				B1ECC5A3F1A15FB84F43BF1416352E74 /* Frameworks */,
+				25FA62AE4EDB3F7770AF2E588D60C0F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B4AC27C1BB2DDBDC57149B59B9BF11B /* PBXTargetDependency */,
+			);
+			name = "Pods-StackERView_Tests";
+			productName = "Pods-StackERView_Tests";
+			productReference = AEE314EFEAF90598BE2BBA863761A972 /* Pods_StackERView_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 0B3C98885CAFD7EB46F3A7B0D013FB6B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6F798CD357A73D704324522920F2F998 /* Pods-StackERView_Example */,
+				83B86E4F2B5DDC46B7B30B9B815A461C /* Pods-StackERView_Tests */,
+				65735594927F4C29EED6E791804E9AC8 /* StackERView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23788A1E004A11D433B6B00F7C404BC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25FA62AE4EDB3F7770AF2E588D60C0F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEEF26CA16120727C9791A31D18D953C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		191CFBD30AAE69B071ACCA999CE74856 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				717F30AB8BBFDFD6EB22A822DD598124 /* ReplaceMe.swift in Sources */,
+				3C64A34F76E5B4AFCA396844213DFD84 /* StackERView-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD6551AFCB27260F6B4E0E19A51E21C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E6BAD37E589E6ED4529EE2EF45D4E27 /* Pods-StackERView_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F45AF75A157CCA43CA007E88AD0509AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DA50CEC5655D7BCCAC576AD414B39AF /* Pods-StackERView_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B4AC27C1BB2DDBDC57149B59B9BF11B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-StackERView_Example";
+			target = 6F798CD357A73D704324522920F2F998 /* Pods-StackERView_Example */;
+			targetProxy = 909BA0CAB9C329D2DC3C03623C769A35 /* PBXContainerItemProxy */;
+		};
+		B6E3A19F97879377A101FE07392D5B5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = StackERView;
+			target = 65735594927F4C29EED6E791804E9AC8 /* StackERView */;
+			targetProxy = C19F00A94E6C587F1AD2245AA4C91436 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		32EC118748A6B9B709C56A93D895ED9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16265304A964930631CB393BFE34B1E4 /* StackERView.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/StackERView/StackERView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/StackERView/StackERView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/StackERView/StackERView.modulemap";
+				PRODUCT_MODULE_NAME = StackERView;
+				PRODUCT_NAME = StackERView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4A24428C9A0916A6A3EF24071B82D126 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54B4D90151AAEBE2B11E66AB0BA8E4CC /* Pods-StackERView_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StackERView_Tests/Pods-StackERView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StackERView_Tests/Pods-StackERView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		91013D3820E3671083C5FB0846279EF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E83FD9C084EE74AFCC31B77317279B5 /* Pods-StackERView_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StackERView_Example/Pods-StackERView_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StackERView_Example/Pods-StackERView_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B2DE482AA73CDF8645B10A32B246A967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87EF37F7A341AD215180BC69A4AF9CE0 /* StackERView.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/StackERView/StackERView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/StackERView/StackERView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/StackERView/StackERView.modulemap";
+				PRODUCT_MODULE_NAME = StackERView;
+				PRODUCT_NAME = StackERView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BC82175A1D22D10E528AE2D4845F8EB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDF86CEA7EFDD86E833BAD5CB9EDB4D6 /* Pods-StackERView_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StackERView_Tests/Pods-StackERView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StackERView_Tests/Pods-StackERView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		FB809D1D2C688207776978F2B53D7D79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1947C633CAAAC33F46FE84325637AEC /* Pods-StackERView_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-StackERView_Example/Pods-StackERView_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-StackERView_Example/Pods-StackERView_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		099777E22171C4DEC073EB2111D8BD00 /* Build configuration list for PBXNativeTarget "Pods-StackERView_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A24428C9A0916A6A3EF24071B82D126 /* Debug */,
+				BC82175A1D22D10E528AE2D4845F8EB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BB0C644A120077223964BBD28D4B8EF /* Build configuration list for PBXNativeTarget "Pods-StackERView_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB809D1D2C688207776978F2B53D7D79 /* Debug */,
+				91013D3820E3671083C5FB0846279EF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
+				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D4EA52FB94ACC35EEE9B89007A891CD /* Build configuration list for PBXNativeTarget "StackERView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32EC118748A6B9B709C56A93D895ED9B /* Debug */,
+				B2DE482AA73CDF8645B10A32B246A967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

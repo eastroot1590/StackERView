@@ -1,0 +1,22 @@
+{
+  "name": "StackERView",
+  "version": "0.1.0",
+  "summary": "A short description of StackERView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/eastroot1590@gmail.com/StackERView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "eastroot1590@gmail.com": "eastroot1590@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/eastroot1590@gmail.com/StackERView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "StackERView/Classes/**/*"
+}

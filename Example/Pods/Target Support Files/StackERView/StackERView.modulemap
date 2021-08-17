@@ -1,0 +1,6 @@
+framework module StackERView {
+  umbrella header "StackERView-umbrella.h"
+
+  export *
+  module * { export * }
+}

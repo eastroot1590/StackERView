@@ -1,0 +1,6 @@
+framework module Pods_StackERView_Example {
+  umbrella header "Pods-StackERView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

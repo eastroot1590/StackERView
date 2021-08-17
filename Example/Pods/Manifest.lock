@@ -1,0 +1,16 @@
+PODS:
+  - StackERView (0.1.0)
+
+DEPENDENCIES:
+  - StackERView (from `../`)
+
+EXTERNAL SOURCES:
+  StackERView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  StackERView: c7ae0359ceb86d9604434f6f6e8549ec200d36d4
+
+PODFILE CHECKSUM: 308422ac9d6940c80b734ea08f584d2760b995a1
+
+COCOAPODS: 1.10.1
