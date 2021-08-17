@@ -13,10 +13,27 @@
 		39F4B1C2142E7F3F266893C9E940D2A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		3C64A34F76E5B4AFCA396844213DFD84 /* StackERView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AB79DF333D1848B33FAE6258B7FC50 /* StackERView-dummy.m */; };
 		6E6BAD37E589E6ED4529EE2EF45D4E27 /* Pods-StackERView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9810D3DB1ACF41CBF865508ABCE7F435 /* Pods-StackERView_Tests-dummy.m */; };
-		717F30AB8BBFDFD6EB22A822DD598124 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F81ABA86AC265CA54FEC564BBC026B /* ReplaceMe.swift */; };
 		8DA50CEC5655D7BCCAC576AD414B39AF /* Pods-StackERView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA045BE35C1BEEEEBE49DAB594C0E84E /* Pods-StackERView_Example-dummy.m */; };
 		977317C75C11E3AE3A7FFD66160FCA14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		BAF74B8D0A9E15D0C69063375DC34659 /* Pods-StackERView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B3C56FDB40AA6C5A641CD8BCD6C6ED35 /* Pods-StackERView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3AC3FE326CBD9B500AA7D7C /* StackERNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FDD26CBD9B500AA7D7C /* StackERNode.swift */; };
+		D3AC3FE426CBD9B500AA7D7C /* StackERView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FDE26CBD9B500AA7D7C /* StackERView.swift */; };
+		D3AC3FE526CBD9B500AA7D7C /* HStackERScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FDF26CBD9B500AA7D7C /* HStackERScrollView.swift */; };
+		D3AC3FE626CBD9B500AA7D7C /* VStackERScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FE026CBD9B500AA7D7C /* VStackERScrollView.swift */; };
+		D3AC3FE726CBD9B500AA7D7C /* HStackERView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FE126CBD9B500AA7D7C /* HStackERView.swift */; };
+		D3AC3FE826CBD9B500AA7D7C /* VStackERView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FE226CBD9B500AA7D7C /* VStackERView.swift */; };
+		D3AC3FE926CBDA0C00AA7D7C /* StackERNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FDD26CBD9B500AA7D7C /* StackERNode.swift */; };
+		D3AC3FEA26CBDA0C00AA7D7C /* VStackERScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FE026CBD9B500AA7D7C /* VStackERScrollView.swift */; };
+		D3AC3FEB26CBDA0C00AA7D7C /* HStackERScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FDF26CBD9B500AA7D7C /* HStackERScrollView.swift */; };
+		D3AC3FEC26CBDA0C00AA7D7C /* HStackERView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FE126CBD9B500AA7D7C /* HStackERView.swift */; };
+		D3AC3FED26CBDA0C00AA7D7C /* StackERView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FDE26CBD9B500AA7D7C /* StackERView.swift */; };
+		D3AC3FEE26CBDA0C00AA7D7C /* VStackERView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FE226CBD9B500AA7D7C /* VStackERView.swift */; };
+		D3AC3FEF26CBDA0D00AA7D7C /* StackERNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FDD26CBD9B500AA7D7C /* StackERNode.swift */; };
+		D3AC3FF026CBDA0D00AA7D7C /* VStackERScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FE026CBD9B500AA7D7C /* VStackERScrollView.swift */; };
+		D3AC3FF126CBDA0D00AA7D7C /* HStackERScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FDF26CBD9B500AA7D7C /* HStackERScrollView.swift */; };
+		D3AC3FF226CBDA0D00AA7D7C /* HStackERView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FE126CBD9B500AA7D7C /* HStackERView.swift */; };
+		D3AC3FF326CBDA0D00AA7D7C /* StackERView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FDE26CBD9B500AA7D7C /* StackERView.swift */; };
+		D3AC3FF426CBDA0D00AA7D7C /* VStackERView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FE226CBD9B500AA7D7C /* VStackERView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,36 +56,41 @@
 /* Begin PBXFileReference section */
 		01C479A25586EA1567BA44CC40449D34 /* Pods-StackERView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-StackERView_Example.modulemap"; sourceTree = "<group>"; };
 		06A2C7773E299C24C122F5473791B33F /* StackERView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "StackERView-Info.plist"; sourceTree = "<group>"; };
-		0E135CFE1889DB13DE353033F3F07B38 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		0E135CFE1889DB13DE353033F3F07B38 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		159D26E0990BADF8939DECE137D2FBF0 /* StackERView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StackERView-prefix.pch"; sourceTree = "<group>"; };
 		16265304A964930631CB393BFE34B1E4 /* StackERView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StackERView.debug.xcconfig; sourceTree = "<group>"; };
 		2048645D761923183A5E36EB196F7472 /* Pods-StackERView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StackERView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2052C8EE459900E51455AECA551738C8 /* Pods-StackERView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StackERView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		21F81ABA86AC265CA54FEC564BBC026B /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = StackERView/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		2E83FD9C084EE74AFCC31B77317279B5 /* Pods-StackERView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StackERView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		487B61BB7D0A908AB89C780B507A7EF8 /* Pods-StackERView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StackERView_Tests-Info.plist"; sourceTree = "<group>"; };
 		52A323B40AAD3EE7057380DB59AB206C /* Pods-StackERView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StackERView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		54B4D90151AAEBE2B11E66AB0BA8E4CC /* Pods-StackERView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StackERView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		54D122F6FC572C9777D5CC6B3C02DC0E /* Pods-StackERView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StackERView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		608AB8E06AAA2E894E2B9800C6DF0A44 /* Pods-StackERView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StackERView_Example-frameworks.sh"; sourceTree = "<group>"; };
-		6B06DC846ABA05B956AB943A03487D6A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		707BDC8400E79E5654A453748158653A /* StackERView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = StackERView.framework; path = StackERView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B06DC846ABA05B956AB943A03487D6A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		707BDC8400E79E5654A453748158653A /* StackERView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StackERView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		86E6E1682F9FB94E9072D39A34FB7926 /* StackERView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = StackERView.modulemap; sourceTree = "<group>"; };
 		87EF37F7A341AD215180BC69A4AF9CE0 /* StackERView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StackERView.release.xcconfig; sourceTree = "<group>"; };
 		9810D3DB1ACF41CBF865508ABCE7F435 /* Pods-StackERView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StackERView_Tests-dummy.m"; sourceTree = "<group>"; };
 		9A79A1B22083D9317631EDA4948DA708 /* StackERView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "StackERView-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FCDF13869847A661B28DE049ED846F3 /* Pods-StackERView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StackERView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A5EC71C52F5A676D789F1A3B96F21F97 /* Pods-StackERView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-StackERView_Tests.modulemap"; sourceTree = "<group>"; };
 		A6648F0CDCD3F837AEB22DDFEAC5255E /* Pods-StackERView_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StackERView_Example-Info.plist"; sourceTree = "<group>"; };
 		A8AB79DF333D1848B33FAE6258B7FC50 /* StackERView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "StackERView-dummy.m"; sourceTree = "<group>"; };
 		AA045BE35C1BEEEEBE49DAB594C0E84E /* Pods-StackERView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StackERView_Example-dummy.m"; sourceTree = "<group>"; };
-		AEE314EFEAF90598BE2BBA863761A972 /* Pods_StackERView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StackERView_Tests.framework; path = "Pods-StackERView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF81C0ACA209D9333190C7CC30DA5944 /* StackERView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = StackERView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AEE314EFEAF90598BE2BBA863761A972 /* Pods_StackERView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackERView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF81C0ACA209D9333190C7CC30DA5944 /* StackERView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = StackERView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B3C56FDB40AA6C5A641CD8BCD6C6ED35 /* Pods-StackERView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StackERView_Example-umbrella.h"; sourceTree = "<group>"; };
 		D1947C633CAAAC33F46FE84325637AEC /* Pods-StackERView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StackERView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E0A8033988EC30A27B10D4DC4DA92965 /* Pods_StackERView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_StackERView_Example.framework; path = "Pods-StackERView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3AC3FDD26CBD9B500AA7D7C /* StackERNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackERNode.swift; path = StackERView/Classes/StackERNode.swift; sourceTree = "<group>"; };
+		D3AC3FDE26CBD9B500AA7D7C /* StackERView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackERView.swift; path = StackERView/Classes/StackERView.swift; sourceTree = "<group>"; };
+		D3AC3FDF26CBD9B500AA7D7C /* HStackERScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HStackERScrollView.swift; path = StackERView/Classes/HStackERScrollView.swift; sourceTree = "<group>"; };
+		D3AC3FE026CBD9B500AA7D7C /* VStackERScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VStackERScrollView.swift; path = StackERView/Classes/VStackERScrollView.swift; sourceTree = "<group>"; };
+		D3AC3FE126CBD9B500AA7D7C /* HStackERView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HStackERView.swift; path = StackERView/Classes/HStackERView.swift; sourceTree = "<group>"; };
+		D3AC3FE226CBD9B500AA7D7C /* VStackERView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VStackERView.swift; path = StackERView/Classes/VStackERView.swift; sourceTree = "<group>"; };
+		E0A8033988EC30A27B10D4DC4DA92965 /* Pods_StackERView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackERView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDF86CEA7EFDD86E833BAD5CB9EDB4D6 /* Pods-StackERView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StackERView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,7 +237,12 @@
 		F24083B3200A04B8C10AEF26DF2B4A17 /* StackERView */ = {
 			isa = PBXGroup;
 			children = (
-				21F81ABA86AC265CA54FEC564BBC026B /* ReplaceMe.swift */,
+				D3AC3FDF26CBD9B500AA7D7C /* HStackERScrollView.swift */,
+				D3AC3FE126CBD9B500AA7D7C /* HStackERView.swift */,
+				D3AC3FDD26CBD9B500AA7D7C /* StackERNode.swift */,
+				D3AC3FDE26CBD9B500AA7D7C /* StackERView.swift */,
+				D3AC3FE026CBD9B500AA7D7C /* VStackERScrollView.swift */,
+				D3AC3FE226CBD9B500AA7D7C /* VStackERView.swift */,
 				0E370D8842555CA06BD1638D4252907C /* Pod */,
 				469833D1C358658A5ED0F33EF4F0F4BB /* Support Files */,
 			);
@@ -316,7 +343,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					65735594927F4C29EED6E791804E9AC8 = {
+						LastSwiftMigration = 1250;
+					};
+					6F798CD357A73D704324522920F2F998 = {
+						LastSwiftMigration = 1250;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -367,8 +402,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				717F30AB8BBFDFD6EB22A822DD598124 /* ReplaceMe.swift in Sources */,
+				D3AC3FF426CBDA0D00AA7D7C /* VStackERView.swift in Sources */,
+				D3AC3FF326CBDA0D00AA7D7C /* StackERView.swift in Sources */,
+				D3AC3FF226CBDA0D00AA7D7C /* HStackERView.swift in Sources */,
 				3C64A34F76E5B4AFCA396844213DFD84 /* StackERView-dummy.m in Sources */,
+				D3AC3FF026CBDA0D00AA7D7C /* VStackERScrollView.swift in Sources */,
+				D3AC3FF126CBDA0D00AA7D7C /* HStackERScrollView.swift in Sources */,
+				D3AC3FEF26CBDA0D00AA7D7C /* StackERNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +416,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3AC3FEE26CBDA0C00AA7D7C /* VStackERView.swift in Sources */,
+				D3AC3FED26CBDA0C00AA7D7C /* StackERView.swift in Sources */,
+				D3AC3FEC26CBDA0C00AA7D7C /* HStackERView.swift in Sources */,
 				6E6BAD37E589E6ED4529EE2EF45D4E27 /* Pods-StackERView_Tests-dummy.m in Sources */,
+				D3AC3FEA26CBDA0C00AA7D7C /* VStackERScrollView.swift in Sources */,
+				D3AC3FEB26CBDA0C00AA7D7C /* HStackERScrollView.swift in Sources */,
+				D3AC3FE926CBDA0C00AA7D7C /* StackERNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +430,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3AC3FE826CBD9B500AA7D7C /* VStackERView.swift in Sources */,
+				D3AC3FE626CBD9B500AA7D7C /* VStackERScrollView.swift in Sources */,
+				D3AC3FE726CBD9B500AA7D7C /* HStackERView.swift in Sources */,
+				D3AC3FE426CBD9B500AA7D7C /* StackERView.swift in Sources */,
 				8DA50CEC5655D7BCCAC576AD414B39AF /* Pods-StackERView_Example-dummy.m in Sources */,
+				D3AC3FE526CBD9B500AA7D7C /* HStackERScrollView.swift in Sources */,
+				D3AC3FE326CBD9B500AA7D7C /* StackERNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -487,7 +539,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/StackERView/StackERView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/StackERView/StackERView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/StackERView/StackERView.modulemap";
 				PRODUCT_MODULE_NAME = StackERView;
@@ -495,7 +547,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -517,7 +569,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-StackERView_Tests/Pods-StackERView_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-StackERView_Tests/Pods-StackERView_Tests.modulemap";
@@ -539,6 +591,7 @@
 			baseConfigurationReference = 2E83FD9C084EE74AFCC31B77317279B5 /* Pods-StackERView_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -549,7 +602,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-StackERView_Example/Pods-StackERView_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-StackERView_Example/Pods-StackERView_Example.modulemap";
@@ -560,6 +613,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -582,7 +636,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/StackERView/StackERView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/StackERView/StackERView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/StackERView/StackERView.modulemap";
 				PRODUCT_MODULE_NAME = StackERView;
@@ -590,7 +644,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -613,7 +667,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-StackERView_Tests/Pods-StackERView_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-StackERView_Tests/Pods-StackERView_Tests.modulemap";
@@ -681,13 +735,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -698,6 +751,7 @@
 			baseConfigurationReference = D1947C633CAAAC33F46FE84325637AEC /* Pods-StackERView_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -708,7 +762,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-StackERView_Example/Pods-StackERView_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-StackERView_Example/Pods-StackERView_Example.modulemap";
@@ -719,6 +773,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
