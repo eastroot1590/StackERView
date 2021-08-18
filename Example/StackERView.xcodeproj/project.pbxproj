@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7653DEA05FF3526057CE4296 /* Pods_StackERView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D55306B95CF9BB4858733F /* Pods_StackERView_Example.framework */; };
 		D3AC3FFA26CBDD4100AA7D7C /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FF926CBDD4100AA7D7C /* CustomView.swift */; };
+		D3B6BE5626CCA17500583CE1 /* InheritanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6BE5526CCA17500583CE1 /* InheritanceView.swift */; };
 		DE95B1D3B4F333068CDDDF13 /* Pods_StackERView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E4CC8EAA0D8802EFB0822D /* Pods_StackERView_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		A2E4CC8EAA0D8802EFB0822D /* Pods_StackERView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackERView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69BCA991F9A45B86CBDB7BE /* Pods-StackERView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackERView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-StackERView_Tests/Pods-StackERView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3AC3FF926CBDD4100AA7D7C /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		D3B6BE5526CCA17500583CE1 /* InheritanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InheritanceView.swift; sourceTree = "<group>"; };
 		E30573B9915C5201D9E21DEB /* Pods-StackERView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackERView_Example.debug.xcconfig"; path = "Target Support Files/Pods-StackERView_Example/Pods-StackERView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EAA1D665497B64BDD8F9C43C /* StackERView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = StackERView.podspec; path = ../StackERView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				D3AC3FF926CBDD4100AA7D7C /* CustomView.swift */,
+				D3B6BE5526CCA17500583CE1 /* InheritanceView.swift */,
 			);
 			name = "Example for StackERView";
 			path = StackERView;
@@ -334,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3AC3FFA26CBDD4100AA7D7C /* CustomView.swift in Sources */,
+				D3B6BE5626CCA17500583CE1 /* InheritanceView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

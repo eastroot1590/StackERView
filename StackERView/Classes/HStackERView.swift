@@ -7,26 +7,26 @@
 
 import UIKit
 
-public class HStackERView: UIView, StackERView {
-    public var stackSize: CGSize = .zero
+open class HStackERView: UIView, StackERView {
+    open var stackSize: CGSize = .zero
     
-    public var stackInset: UIEdgeInsets = .zero
+    open var stackInset: UIEdgeInsets = .zero
     
-    public var stackAlignment: UIView.ContentMode = .center
+    open var stackAlignment: UIView.ContentMode = .center
     
-    public var ignoreFirstSpacing: Bool = true
+    open var ignoreFirstSpacing: Bool = true
     
     var stack: [StackERNode] = []
     
-    public override class var requiresConstraintBasedLayout: Bool {
+    open override class var requiresConstraintBasedLayout: Bool {
         false
     }
     
-    public override var intrinsicContentSize: CGSize {
+    open override var intrinsicContentSize: CGSize {
         return CGSize(width: stackInset.left + stackSize.width + stackInset.right, height: stackInset.top + stackSize.height + stackInset.bottom)
     }
     
-    public override func updateConstraints() {
+    open override func updateConstraints() {
         // recalculate content size
         stackSize = .zero
         
@@ -57,7 +57,7 @@ public class HStackERView: UIView, StackERView {
         super.updateConstraints()
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         var width = stackInset.left
@@ -110,7 +110,7 @@ public class HStackERView: UIView, StackERView {
         setNeedsUpdateConstraints()
     }
     
-    func layoutNode(_ node: StackERNode, min: CGFloat) {
+    open func layoutNode(_ node: StackERNode, min: CGFloat) {
         if node.view.frame.height == 0 {
             node.view.frame.size = CGSize(width: node.view.frame.width, height: frame.height - stackInset.top - stackInset.bottom)
         }

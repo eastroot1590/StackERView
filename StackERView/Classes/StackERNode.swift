@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct StackERNode {
+public struct StackERNode {
     let view: UIView
     let spacing: CGFloat
     

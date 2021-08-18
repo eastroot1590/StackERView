@@ -8,7 +8,7 @@
 import UIKit
 
 open class VStackERScrollView: UIScrollView {
-    public var stackInset: UIEdgeInsets {
+    open var stackInset: UIEdgeInsets {
         get {
             contentView.stackInset
         }
@@ -17,7 +17,7 @@ open class VStackERScrollView: UIScrollView {
         }
     }
     
-    public var stackAlignment: UIView.ContentMode {
+    open var stackAlignment: UIView.ContentMode {
         get {
             contentView.stackAlignment
         }
@@ -27,14 +27,14 @@ open class VStackERScrollView: UIScrollView {
     }
     
     var bannerView: UIView?
-    public var banner: UIView? {
+    open var banner: UIView? {
         return bannerView
     }
     
     var bannerHeight: CGFloat = 0
     
     var ribbonView: UIView?
-    public var ribbon: UIView? {
+    open var ribbon: UIView? {
         return ribbonView
     }
     
@@ -60,7 +60,7 @@ open class VStackERScrollView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func updateConstraints() {
+    open override func updateConstraints() {
         contentViewTopConstraint.constant = bannerHeight + ribbonHeight
         
         // recalculate content size
@@ -69,7 +69,7 @@ open class VStackERScrollView: UIScrollView {
         super.updateConstraints()
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         bannerLayout()
@@ -82,7 +82,7 @@ open class VStackERScrollView: UIScrollView {
         invalidateIntrinsicContentSize()
     }
     
-    public func setBanner(_ child: UIView, height: CGFloat) {
+    open func setBanner(_ child: UIView, height: CGFloat) {
         // add banner
         bannerView = child
         bannerHeight = height
@@ -92,7 +92,7 @@ open class VStackERScrollView: UIScrollView {
         setNeedsUpdateConstraints()
     }
     
-    public func removeBanner() {
+    open func removeBanner() {
         bannerView?.removeFromSuperview()
         bannerView = nil
         bannerHeight = 0
@@ -100,7 +100,7 @@ open class VStackERScrollView: UIScrollView {
         setNeedsUpdateConstraints()
     }
     
-    public func setRibbon(_ view: UIView, height: CGFloat) {
+    open func setRibbon(_ view: UIView, height: CGFloat) {
         ribbonView = view
         ribbonHeight = height
         addSubview(view)
@@ -109,7 +109,7 @@ open class VStackERScrollView: UIScrollView {
         setNeedsUpdateConstraints()
     }
     
-    public func removeRibbon() {
+    open func removeRibbon() {
         ribbonView?.removeFromSuperview()
         ribbonView = nil
         ribbonHeight = 0

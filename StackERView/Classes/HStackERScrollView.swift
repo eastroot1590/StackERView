@@ -8,7 +8,7 @@
 import UIKit
 
 open class HStackERScrollView: UIScrollView {
-    public var stackInset: UIEdgeInsets {
+    open var stackInset: UIEdgeInsets {
         get {
             contentView.stackInset
         }
@@ -17,7 +17,7 @@ open class HStackERScrollView: UIScrollView {
         }
     }
     
-    public var stackAlignment: UIView.ContentMode {
+    open var stackAlignment: UIView.ContentMode {
         get {
             contentView.stackAlignment
         }
@@ -53,7 +53,7 @@ open class HStackERScrollView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func updateConstraints() {
+    open override func updateConstraints() {
         // recalculate content size
         contentSize = contentView.intrinsicContentSize
         
