@@ -26,23 +26,33 @@ open class VStackERScrollView: UIScrollView {
         }
     }
     
-    var banner: UIView = UIView()
+    var bannerView: UIView?
+    public var banner: UIView? {
+        return bannerView
+    }
+    
     var bannerHeight: CGFloat = 0
     
+    var ribbonView: UIView?
+    public var ribbon: UIView? {
+        return ribbonView
+    }
+    
+    var ribbonHeight: CGFloat = 0
+    
     let contentView: VStackERView = VStackERView()
+    var contentViewTopConstraint: NSLayoutConstraint = NSLayoutConstraint()
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
-        // 크기가 0인 배너로 시작
-        addSubview(banner)
-        
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
+        contentViewTopConstraint = contentView.topAnchor.constraint(equalTo: topAnchor)
         NSLayoutConstraint.activate([
             contentView.centerXAnchor.constraint(equalTo: centerXAnchor),
             contentView.widthAnchor.constraint(equalTo: widthAnchor),
-            contentView.topAnchor.constraint(equalTo: banner.bottomAnchor)
+            contentViewTopConstraint
         ])
     }
     
@@ -51,8 +61,10 @@ open class VStackERScrollView: UIScrollView {
     }
     
     public override func updateConstraints() {
+        contentViewTopConstraint.constant = bannerHeight + ribbonHeight
+        
         // recalculate content size
-        contentSize = CGSize(width: contentView.intrinsicContentSize.width, height: bannerHeight + contentView.intrinsicContentSize.height)
+        contentSize = CGSize(width: contentView.intrinsicContentSize.width, height: bannerHeight + ribbonHeight + contentView.intrinsicContentSize.height)
         
         super.updateConstraints()
     }
@@ -61,6 +73,7 @@ open class VStackERScrollView: UIScrollView {
         super.layoutSubviews()
         
         bannerLayout()
+        ribbonLayout()
     }
     
     public func push(_ child: UIView, spacing: CGFloat = 0) {
@@ -70,25 +83,75 @@ open class VStackERScrollView: UIScrollView {
     }
     
     public func setBanner(_ child: UIView, height: CGFloat) {
-        // remove old banner
-        banner.removeFromSuperview()
-        
         // add banner
-        banner = child
+        bannerView = child
         bannerHeight = height
-        addSubview(banner)
+        addSubview(child)
         
         // constraint
-        NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: banner.bottomAnchor)
-        ])
+        setNeedsUpdateConstraints()
+    }
+    
+    public func removeBanner() {
+        bannerView?.removeFromSuperview()
+        bannerView = nil
+        bannerHeight = 0
+        
+        setNeedsUpdateConstraints()
+    }
+    
+    public func setRibbon(_ view: UIView, height: CGFloat) {
+        ribbonView = view
+        ribbonHeight = height
+        addSubview(view)
+        
+        // constraint
+        setNeedsUpdateConstraints()
+    }
+    
+    public func removeRibbon() {
+        ribbonView?.removeFromSuperview()
+        ribbonView = nil
+        ribbonHeight = 0
+        
+        setNeedsUpdateConstraints()
     }
     
     /// sticky banner layout
     private func bannerLayout() {
+        guard let banner = bannerView else {
+            return
+        }
+        
+        stickyHeaderLayout(banner, height: bannerHeight)
+    }
+    
+    /// pivot ribbon layout
+    private func ribbonLayout() {
+        guard let ribbon = ribbonView else {
+            return
+        }
+        
+        // 베너가 없으면 sticky header
+        if banner == nil {
+            stickyHeaderLayout(ribbon, height: ribbonHeight)
+        } else {
+            pivotLayout(ribbon, height: ribbonHeight)
+        }
+    }
+    
+    private func stickyHeaderLayout(_ view: UIView, height: CGFloat) {
         let offset = min(contentOffset.y, 0)
         
-        banner.frame.origin = CGPoint(x: 0, y: offset)
-        banner.frame.size = CGSize(width: frame.width, height: bannerHeight - offset)
+        view.frame.origin = CGPoint(x: 0, y: offset)
+        view.frame.size = CGSize(width: frame.width, height: height - offset)
+    }
+    
+    private func pivotLayout(_ view: UIView, height: CGFloat) {
+        view.frame.origin = CGPoint(x: 0, y: max(contentOffset.y, bannerHeight))
+        
+        let offset = max(contentOffset.y + adjustedContentInset.top, bannerHeight) - bannerHeight
+        let newHeight = min(height + offset, height + adjustedContentInset.top)
+        view.frame.size = CGSize(width: frame.width, height: newHeight)
     }
 }

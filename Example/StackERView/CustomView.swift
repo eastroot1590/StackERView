@@ -10,9 +10,8 @@ import UIKit
 
 class CustomView: UIView {
 
-//    override var intrinsicContentSize: CGSize {
-//        return CGSize(width: UIView.noIntrinsicMetric, height: 50)
-//        return CGSize(width: 50, height: UIView.noIntrinsicMetric)
-//    }
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 50)
+    }
 
 }
