@@ -34,22 +34,24 @@ open class VStackERView: UIView, StackERView {
             var height: CGFloat = 0
             var width: CGFloat = 0
             
-            if node.view.frame.width > 0 {
-                node.constraints[2].constant = node.view.frame.width
-            } else {
+            if node.view.intrinsicContentSize.width > UIView.noIntrinsicMetric {
                 node.constraints[2].constant = node.view.intrinsicContentSize.width
-            }
-            
-            if node.view.frame.height > 0 {
-                node.constraints[3].constant = node.view.frame.height
             } else {
+                node.constraints[2].constant = node.view.frame.width
+            }
+        
+            if node.view.intrinsicContentSize.height > UIView.noIntrinsicMetric {
                 node.constraints[3].constant = node.view.intrinsicContentSize.height
+            } else {
+                node.constraints[3].constant = node.view.frame.height
             }
             
-            width = node.constraints[2].constant
-            height = node.constraints[3].constant
-            
-            stackSize = CGSize(width: max(width, stackSize.width), height: stackSize.height + node.spacing + height)
+            if !node.view.isHidden {
+                width = node.constraints[2].constant
+                height = node.constraints[3].constant
+                
+                stackSize = CGSize(width: max(width, stackSize.width), height: stackSize.height + node.spacing + height)
+            }
         }
         
         superview?.invalidateIntrinsicContentSize()
@@ -81,8 +83,7 @@ open class VStackERView: UIView, StackERView {
         let topConstraint = child.topAnchor.constraint(equalTo: top, constant: spacing)
         topConstraint.priority = UILayoutPriority(500)
         
-        let leading = stack.last?.view.leadingAnchor ?? self.leadingAnchor
-        let leadingConstraint = child.leadingAnchor.constraint(equalTo: leading, constant: stackInset.left)
+        let leadingConstraint = child.leadingAnchor.constraint(equalTo: leadingAnchor, constant: stackInset.left)
         leadingConstraint.priority = UILayoutPriority(500)
         
         let widthConstraint = child.widthAnchor.constraint(equalToConstant: self.frame.width - stackInset.left - stackInset.right)

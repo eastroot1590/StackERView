@@ -25,7 +25,6 @@ open class HStackERView: UIView, StackERView {
     open override var intrinsicContentSize: CGSize {
         return CGSize(width: stackInset.left + stackSize.width + stackInset.right, height: stackInset.top + stackSize.height + stackInset.bottom)
     }
-    
     open override func updateConstraints() {
         // recalculate content size
         stackSize = .zero
@@ -34,22 +33,24 @@ open class HStackERView: UIView, StackERView {
             var height: CGFloat = 0
             var width: CGFloat = 0
             
-            if node.view.frame.width > 0 {
-                node.constraints[2].constant = node.view.frame.width
-            } else {
+            if node.view.intrinsicContentSize.width > UIView.noIntrinsicMetric {
                 node.constraints[2].constant = node.view.intrinsicContentSize.width
-            }
-            
-            if node.view.frame.height > 0 {
-                node.constraints[3].constant = node.view.frame.height
             } else {
+                node.constraints[2].constant = node.view.frame.width
+            }
+        
+            if node.view.intrinsicContentSize.height > UIView.noIntrinsicMetric {
                 node.constraints[3].constant = node.view.intrinsicContentSize.height
+            } else {
+                node.constraints[3].constant = node.view.frame.height
             }
             
-            width = node.constraints[2].constant
-            height = node.constraints[3].constant
-            
-            stackSize = CGSize(width: stackSize.width + node.spacing + width, height: max(height, stackSize.height))
+            if !node.view.isHidden {
+                width = node.constraints[2].constant
+                height = node.constraints[3].constant
+                
+                stackSize = CGSize(width: max(width, stackSize.width), height: stackSize.height + node.spacing + height)
+            }
         }
         
         superview?.invalidateIntrinsicContentSize()
@@ -77,7 +78,6 @@ open class HStackERView: UIView, StackERView {
         // constraint
         child.translatesAutoresizingMaskIntoConstraints = false
         
-//        let top = stack.last?.view.topAnchor ?? self.topAnchor
         let topConstraint = child.topAnchor.constraint(equalTo: topAnchor, constant: stackInset.top)
         topConstraint.priority = UILayoutPriority(500)
         
