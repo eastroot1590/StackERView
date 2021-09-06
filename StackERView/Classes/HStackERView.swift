@@ -66,8 +66,10 @@ open class HStackERView: UIView, StackERView {
         for node in stack {
             layoutNode(node, min: width)
 
-            width += node.spacing
-            width += node.view.frame.width
+            if !node.view.isHidden {
+                width += node.spacing
+                width += node.view.frame.width
+            }
         }
     }
     

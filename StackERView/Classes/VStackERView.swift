@@ -67,8 +67,10 @@ open class VStackERView: UIView, StackERView {
         for node in stack {
             layoutNode(node, min: height)
 
-            height += node.spacing
-            height += node.view.frame.height
+            if !node.view.isHidden {
+                height += node.spacing
+                height += node.view.frame.height
+            }
         }
     }
     
