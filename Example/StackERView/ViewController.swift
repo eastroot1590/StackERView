@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         
         testStack.translatesAutoresizingMaskIntoConstraints = false
         testStack.backgroundColor = .systemBlue
+        testStack.delegate = self
         testStack.stackInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         view.addSubview(testStack)
         NSLayoutConstraint.activate([
@@ -61,15 +62,10 @@ class ViewController: UIViewController {
         
         let ribbon = UIView()
         ribbon.backgroundColor = .systemGreen
+        ribbon.layer.shadowColor = UIColor.black.cgColor
+        ribbon.layer.shadowOpacity = 0.8
         testStack.setRibbon(ribbon, height: 50)
-        
-        if let _ = testStack.banner {
-            testStack.removeBanner()
-        }
 
-        if let _ = testStack.ribbon {
-            testStack.removeRibbon()
-        }
         
         view.layoutSubviews()
     }
@@ -78,6 +74,19 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
 
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let ribbon = testStack.ribbon else {
+            return
+        }
+        
+        let offset = max((ribbon.frame.height - 50) / 10, 10)
+        let shadowRect = CGRect(origin: CGPoint(x: -10, y: 10), size: CGSize(width: ribbon.frame.width + 20, height: max(ribbon.frame.height - 20, 0)))
+        
+        ribbon.layer.shadowPath = UIBezierPath(rect: shadowRect).cgPath
+        ribbon.layer.shadowOffset = CGSize(width: 0, height: offset)
+        print(offset)
+    }
+}

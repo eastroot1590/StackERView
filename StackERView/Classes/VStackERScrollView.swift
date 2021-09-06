@@ -88,6 +88,8 @@ open class VStackERScrollView: UIScrollView {
         bannerHeight = height
         addSubview(child)
         
+        child.frame.size = CGSize(width: contentView.frame.width, height: height)
+        
         // constraint
         setNeedsUpdateConstraints()
     }

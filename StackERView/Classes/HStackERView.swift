@@ -49,7 +49,7 @@ open class HStackERView: UIView, StackERView {
                 width = node.constraints[2].constant
                 height = node.constraints[3].constant
                 
-                stackSize = CGSize(width: max(width, stackSize.width), height: stackSize.height + node.spacing + height)
+                stackSize = CGSize(width: stackSize.width + node.spacing + width, height: max(height, stackSize.height))
             }
         }
         
