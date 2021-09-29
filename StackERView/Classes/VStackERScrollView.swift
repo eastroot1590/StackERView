@@ -40,7 +40,7 @@ open class VStackERScrollView: UIScrollView {
     
     var ribbonHeight: CGFloat = 0
     
-    let contentView: VStackERView = VStackERView()
+    public let contentView: VStackERView = VStackERView()
     var contentViewTopConstraint: NSLayoutConstraint = NSLayoutConstraint()
     
     public override init(frame: CGRect) {
