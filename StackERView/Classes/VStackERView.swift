@@ -8,11 +8,18 @@
 import UIKit
 
 open class VStackERView: UIView, StackERView {
-    open var stackSize: CGSize = .zero
+    
+    open var stackSize: CGSize = .zero {
+        didSet {
+            if !stackSize.equalTo(oldValue) {
+                superview?.updateConstraints()
+            }
+        }
+    }
     
     open var stackInset: UIEdgeInsets = .zero
     
-    open var stackAlignment: UIView.ContentMode = .center
+    open var stackAlignment: StackERAlign = .center
     
     open var ignoreFirstSpacing: Bool = true
     
@@ -25,53 +32,30 @@ open class VStackERView: UIView, StackERView {
     open override var intrinsicContentSize: CGSize {
         return CGSize(width: stackInset.left + stackSize.width + stackInset.right, height: stackInset.top + stackSize.height + stackInset.bottom)
     }
-    
+
     open override func updateConstraints() {
-        // recalculate content size
-        stackSize = .zero
-        
         for node in stack {
-            var height: CGFloat = 0
-            var width: CGFloat = 0
-            
-            if node.view.intrinsicContentSize.width > UIView.noIntrinsicMetric {
-                node.constraints[2].constant = node.view.intrinsicContentSize.width
-            } else {
-                node.constraints[2].constant = node.view.frame.width
-            }
-        
-            if node.view.intrinsicContentSize.height > UIView.noIntrinsicMetric {
-                node.constraints[3].constant = node.view.intrinsicContentSize.height
-            } else {
-                node.constraints[3].constant = node.view.frame.height
-            }
-            
-            if !node.view.isHidden {
-                width = node.constraints[2].constant
-                height = node.constraints[3].constant
-                
-                stackSize = CGSize(width: max(width, stackSize.width), height: stackSize.height + node.spacing + height)
-            }
+            updateNodeConstraint(node)
         }
-        
-        superview?.invalidateIntrinsicContentSize()
-        
+
         super.updateConstraints()
     }
     
     open override func layoutSubviews() {
         super.layoutSubviews()
         
-        var height = stackInset.top
-
-        for node in stack {
-            layoutNode(node, min: height)
+        var newStackSize: CGSize = .zero
+        
+        stack.forEach { node in
+            let width = node.view.frame.width
+            let height = node.view.frame.height
 
             if !node.view.isHidden {
-                height += node.spacing
-                height += node.view.frame.height
+                newStackSize = CGSize(width: max(width, newStackSize.width), height: newStackSize.height + node.spacing + height)
             }
         }
+        
+        stackSize = newStackSize
     }
     
     public func push(_ child: UIView, spacing: CGFloat = 0) {
@@ -80,55 +64,79 @@ open class VStackERView: UIView, StackERView {
         
         // constraint
         child.translatesAutoresizingMaskIntoConstraints = false
-        
+
         let top = stack.last?.view.bottomAnchor ?? self.topAnchor
-        let topConstraint = child.topAnchor.constraint(equalTo: top, constant: spacing)
+        var topSpacing = spacing
+        if stack.isEmpty, ignoreFirstSpacing {
+            topSpacing = 0
+        }
+        let topConstraint = child.topAnchor.constraint(equalTo: top, constant: topSpacing)
         topConstraint.priority = UILayoutPriority(500)
-        
+        topConstraint.isActive = true
+
         let leadingConstraint = child.leadingAnchor.constraint(equalTo: leadingAnchor, constant: stackInset.left)
         leadingConstraint.priority = UILayoutPriority(500)
         
-        let widthConstraint = child.widthAnchor.constraint(equalToConstant: self.frame.width - stackInset.left - stackInset.right)
-        widthConstraint.priority = UILayoutPriority(500)
+        let trailingConstraint = child.trailingAnchor.constraint(equalTo: trailingAnchor, constant: stackInset.right)
+        trailingConstraint.priority = UILayoutPriority(500)
         
-        let heightConstraint = child.heightAnchor.constraint(equalToConstant: child.frame.height)
+        let centerConstraint = child.centerXAnchor.constraint(equalTo: centerXAnchor)
+        centerConstraint.priority = UILayoutPriority(500)
+        centerConstraint.isActive = true
+
+        let widthConstraint = child.widthAnchor.constraint(equalToConstant: frame.width)
+        widthConstraint.priority = UILayoutPriority(500)
+        widthConstraint.isActive = true
+
+        let heightConstraint = child.heightAnchor.constraint(greaterThanOrEqualToConstant: 10)
         heightConstraint.priority = UILayoutPriority(500)
+        heightConstraint.isActive = true
         
         
         // append stack node
         if stack.isEmpty, ignoreFirstSpacing {
-            stack.append(StackERNode(view: child, spacing: 0, constraints: [topConstraint, leadingConstraint, widthConstraint, heightConstraint]))
+            stack.append(StackERNode(view: child, spacing: 0, constraints: [topConstraint, leadingConstraint, centerConstraint, trailingConstraint, widthConstraint, heightConstraint]))
         } else {
-            stack.append(StackERNode(view: child, spacing: spacing, constraints: [topConstraint, leadingConstraint, widthConstraint, heightConstraint]))
+            stack.append(StackERNode(view: child, spacing: spacing, constraints: [topConstraint, leadingConstraint, centerConstraint, trailingConstraint, widthConstraint, heightConstraint]))
         }
-        
-        if let currentNode = stack.last {
-            NSLayoutConstraint.activate(currentNode.constraints)
-        }
-        
-        // update content size
-        invalidateIntrinsicContentSize()
-        superview?.invalidateIntrinsicContentSize()
-        
-        setNeedsUpdateConstraints()
     }
     
-    open func layoutNode(_ node: StackERNode, min: CGFloat) {
-        if node.view.frame.width == 0 {
-            node.view.frame.size = CGSize(width: frame.width - stackInset.left - stackInset.right, height: node.view.frame.height)
+    open func updateNodeConstraint(_ node: StackERNode) {
+        // width
+        if node.view.intrinsicContentSize.width > UIView.noIntrinsicMetric {
+            node.constraints[4].constant = node.view.intrinsicContentSize.width
+        } else {
+            node.constraints[4].constant = node.view.frame.width
+        }
+        
+        // height
+        if node.view.intrinsicContentSize.height > UIView.noIntrinsicMetric {
+            node.constraints[5].constant = node.view.intrinsicContentSize.height
+        } else {
+            node.constraints[5].constant = 10
         }
         
         switch stackAlignment {
-        case .left:
-            node.view.frame.origin = CGPoint(x: stackInset.left, y: min + node.spacing)
+        case .leading:
+            node.constraints[1].isActive = true
+            node.constraints[2].isActive = false
+            node.constraints[3].isActive = false
             
-        case .right:
-            node.view.frame.origin = CGPoint(x: frame.width - stackInset.right - node.view.frame.width, y: min + node.spacing)
+        case .center:
+            node.constraints[1].isActive = false
+            node.constraints[2].isActive = true
+            node.constraints[3].isActive = false
             
-        default:
-            // default center layout
-            node.view.frame.origin = CGPoint(x: frame.width / 2 - node.view.frame.width / 2, y: min + node.spacing)
-            break
+        case .trailing:
+            node.constraints[1].isActive = false
+            node.constraints[2].isActive = false
+            node.constraints[3].isActive = true
+            
+        case .fill:
+            node.constraints[1].isActive = true
+            node.constraints[2].isActive = false
+            node.constraints[3].isActive = true
+            node.constraints[4].isActive = false
         }
     }
 }

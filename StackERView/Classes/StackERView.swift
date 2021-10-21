@@ -7,12 +7,19 @@
 
 import UIKit
 
+public enum StackERAlign {
+    case leading
+    case center
+    case trailing
+    case fill
+}
+
 protocol StackERView: UIView {
     var stackSize: CGSize { get set }
     
     var stackInset: UIEdgeInsets { get set }
     
-    var stackAlignment: UIView.ContentMode { get set }
+    var stackAlignment: StackERAlign { get set }
     
     var ignoreFirstSpacing: Bool { get set }
     
@@ -20,5 +27,5 @@ protocol StackERView: UIView {
     
     func push(_ child: UIView, spacing: CGFloat)
     
-    func layoutNode(_ node: StackERNode, min: CGFloat)
+    func updateNodeConstraint(_ node: StackERNode)
 }

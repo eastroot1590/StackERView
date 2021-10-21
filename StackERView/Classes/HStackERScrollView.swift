@@ -17,7 +17,7 @@ open class HStackERScrollView: UIScrollView {
         }
     }
     
-    open var stackAlignment: UIView.ContentMode {
+    open var stackAlignment: StackERAlign {
         get {
             contentView.stackAlignment
         }

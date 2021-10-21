@@ -17,7 +17,7 @@ open class VStackERScrollView: UIScrollView {
         }
     }
     
-    open var stackAlignment: UIView.ContentMode {
+    open var stackAlignment: StackERAlign {
         get {
             contentView.stackAlignment
         }
@@ -26,7 +26,7 @@ open class VStackERScrollView: UIScrollView {
         }
     }
     
-    var bannerView: UIView?
+    open var bannerView: UIView?
     open var banner: UIView? {
         return bannerView
     }
@@ -40,7 +40,15 @@ open class VStackERScrollView: UIScrollView {
     
     var ribbonHeight: CGFloat = 0
     
-    public let contentView: VStackERView = VStackERView()
+    open var ignoreFirstSpacing: Bool {
+        get {
+            contentView.ignoreFirstSpacing
+        }
+        set {
+            contentView.ignoreFirstSpacing = newValue
+        }
+    }
+    let contentView: VStackERView = VStackERView()
     var contentViewTopConstraint: NSLayoutConstraint = NSLayoutConstraint()
     
     public override init(frame: CGRect) {
@@ -78,8 +86,6 @@ open class VStackERScrollView: UIScrollView {
     
     public func push(_ child: UIView, spacing: CGFloat = 0) {
         contentView.push(child, spacing: spacing)
-        
-        invalidateIntrinsicContentSize()
     }
     
     open func setBanner(_ child: UIView, height: CGFloat) {
@@ -87,8 +93,6 @@ open class VStackERScrollView: UIScrollView {
         bannerView = child
         bannerHeight = height
         addSubview(child)
-        
-        child.frame.size = CGSize(width: contentView.frame.width, height: height)
         
         // constraint
         setNeedsUpdateConstraints()

@@ -12,9 +12,11 @@ public struct StackERNode {
     let spacing: CGFloat
     
     /// constraints
-    /// - [0] : top
-    /// - [1] : leading
-    /// - [2] : width
+    /// - [0] : leading (top in HStack, leading in VStack)
+    /// - [1] : linked (leading in HStack, top in VStack)
+    /// - [2] : center
+    /// - [3] : trailing (bottom in HStack, trailing in VStack)
+    /// - [4] : width
     /// - [3] : height
     var constraints: [NSLayoutConstraint]
 }
