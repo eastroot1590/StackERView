@@ -88,11 +88,11 @@ open class VStackERScrollView: UIScrollView {
         contentView.push(child, spacing: spacing)
     }
     
-    open func setBanner(_ child: UIView, height: CGFloat) {
+    open func setBanner(_ banner: UIView, height: CGFloat) {
         // add banner
-        bannerView = child
+        bannerView = banner
         bannerHeight = height
-        addSubview(child)
+        addSubview(banner)
         
         // constraint
         setNeedsUpdateConstraints()

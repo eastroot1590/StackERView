@@ -12,7 +12,7 @@ open class VStackERView: UIView, StackERView {
     open var stackSize: CGSize = .zero {
         didSet {
             if !stackSize.equalTo(oldValue) {
-                superview?.updateConstraints()
+                invalidateIntrinsicContentSize()
             }
         }
     }
@@ -24,10 +24,6 @@ open class VStackERView: UIView, StackERView {
     open var ignoreFirstSpacing: Bool = true
     
     var stack: [StackERNode] = []
-    
-    open override class var requiresConstraintBasedLayout: Bool {
-        false
-    }
     
     open override var intrinsicContentSize: CGSize {
         return CGSize(width: stackInset.left + stackSize.width + stackInset.right, height: stackInset.top + stackSize.height + stackInset.bottom)
@@ -67,9 +63,14 @@ open class VStackERView: UIView, StackERView {
 
         let top = stack.last?.view.bottomAnchor ?? self.topAnchor
         var topSpacing = spacing
-        if stack.isEmpty, ignoreFirstSpacing {
-            topSpacing = 0
+        if stack.isEmpty {
+            if ignoreFirstSpacing {
+                topSpacing = stackInset.top
+            } else {
+                topSpacing += stackInset.top
+            }
         }
+        
         let topConstraint = child.topAnchor.constraint(equalTo: top, constant: topSpacing)
         topConstraint.priority = UILayoutPriority(500)
         topConstraint.isActive = true
@@ -77,7 +78,7 @@ open class VStackERView: UIView, StackERView {
         let leadingConstraint = child.leadingAnchor.constraint(equalTo: leadingAnchor, constant: stackInset.left)
         leadingConstraint.priority = UILayoutPriority(500)
         
-        let trailingConstraint = child.trailingAnchor.constraint(equalTo: trailingAnchor, constant: stackInset.right)
+        let trailingConstraint = child.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -stackInset.right)
         trailingConstraint.priority = UILayoutPriority(500)
         
         let centerConstraint = child.centerXAnchor.constraint(equalTo: centerXAnchor)
@@ -102,11 +103,13 @@ open class VStackERView: UIView, StackERView {
     }
     
     open func updateNodeConstraint(_ node: StackERNode) {
+        var targetAlignment: StackERAlign = stackAlignment
+        
         // width
         if node.view.intrinsicContentSize.width > UIView.noIntrinsicMetric {
             node.constraints[4].constant = node.view.intrinsicContentSize.width
         } else {
-            node.constraints[4].constant = node.view.frame.width
+            targetAlignment = .fill
         }
         
         // height
@@ -116,7 +119,7 @@ open class VStackERView: UIView, StackERView {
             node.constraints[5].constant = 10
         }
         
-        switch stackAlignment {
+        switch targetAlignment {
         case .leading:
             node.constraints[1].isActive = true
             node.constraints[2].isActive = false

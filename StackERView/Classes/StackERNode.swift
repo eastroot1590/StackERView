@@ -12,8 +12,8 @@ public struct StackERNode {
     let spacing: CGFloat
     
     /// constraints
-    /// - [0] : leading (top in HStack, leading in VStack)
-    /// - [1] : linked (leading in HStack, top in VStack)
+    /// - [0] : linked (leading in HStack, top in VStack)
+    /// - [1] : leading (top in HStack, leading in VStack)
     /// - [2] : center
     /// - [3] : trailing (bottom in HStack, trailing in VStack)
     /// - [4] : width
