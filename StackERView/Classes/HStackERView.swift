@@ -8,10 +8,10 @@
 import UIKit
 
 open class HStackERView: UIView, StackERView {
-    open var stackSize: CGSize = .zero {   
+    open var stackSize: CGSize = .zero {
         didSet {
             if !stackSize.equalTo(oldValue) {
-                superview?.updateConstraints()
+                invalidateIntrinsicContentSize()
             }
         }
     }
@@ -23,10 +23,6 @@ open class HStackERView: UIView, StackERView {
     open var ignoreFirstSpacing: Bool = true
     
     var stack: [StackERNode] = []
-    
-    open override class var requiresConstraintBasedLayout: Bool {
-        false
-    }
     
     open override var intrinsicContentSize: CGSize {
         return CGSize(width: stackInset.left + stackSize.width + stackInset.right, height: stackInset.top + stackSize.height + stackInset.bottom)
@@ -51,6 +47,8 @@ open class HStackERView: UIView, StackERView {
                 newStackSize = CGSize(width: newStackSize.width + node.spacing + width, height: max(height, newStackSize.height))
             }
         }
+        
+        stackSize = newStackSize
     }
     
     public func push(_ child: UIView, spacing: CGFloat = 0) {
@@ -63,16 +61,21 @@ open class HStackERView: UIView, StackERView {
         let topConstraint = child.topAnchor.constraint(equalTo: topAnchor, constant: stackInset.top)
         topConstraint.priority = UILayoutPriority(500)
         
-        let lead = stack.last?.view.bottomAnchor ?? self.topAnchor
+        let lead = stack.last?.view.trailingAnchor ?? self.leadingAnchor
         var leadSpacing = spacing
-        if stack.isEmpty, ignoreFirstSpacing {
-            leadSpacing = 0
+        if stack.isEmpty {
+            if ignoreFirstSpacing {
+                leadSpacing = stackInset.left
+            } else {
+                leadSpacing += stackInset.left
+            }
         }
-        let leadingConstraint = child.topAnchor.constraint(equalTo: lead, constant: leadSpacing)
+        
+        let leadingConstraint = child.leadingAnchor.constraint(equalTo: lead, constant: leadSpacing)
         leadingConstraint.priority = UILayoutPriority(500)
         leadingConstraint.isActive = true
         
-        let bottomConstraint = child.bottomAnchor.constraint(equalTo: bottomAnchor, constant: stackInset.bottom)
+        let bottomConstraint = child.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -stackInset.bottom)
         bottomConstraint.priority = UILayoutPriority(500)
         
         let centerConstraint = child.centerYAnchor.constraint(equalTo: centerYAnchor)
@@ -89,9 +92,9 @@ open class HStackERView: UIView, StackERView {
         
         // append stack node
         if stack.isEmpty, ignoreFirstSpacing {
-            stack.append(StackERNode(view: child, spacing: 0, constraints: [topConstraint, leadingConstraint, centerConstraint, bottomConstraint, widthConstraint, heightConstraint]))
+            stack.append(StackERNode(view: child, spacing: 0, constraints: [leadingConstraint, topConstraint, centerConstraint, bottomConstraint, widthConstraint, heightConstraint]))
         } else {
-            stack.append(StackERNode(view: child, spacing: spacing, constraints: [topConstraint, leadingConstraint, centerConstraint, bottomConstraint, widthConstraint, heightConstraint]))
+            stack.append(StackERNode(view: child, spacing: spacing, constraints: [leadingConstraint, topConstraint, centerConstraint, bottomConstraint, widthConstraint, heightConstraint]))
         }
         
         if let currentNode = stack.last {
@@ -106,38 +109,40 @@ open class HStackERView: UIView, StackERView {
     }
     
     open func updateNodeConstraint(_ node: StackERNode) {
+        var targetAlignment: StackERAlign = stackAlignment
+        
         // width
         if node.view.intrinsicContentSize.width > UIView.noIntrinsicMetric {
             node.constraints[4].constant = node.view.intrinsicContentSize.width
         } else {
-            node.constraints[4].constant = node.view.frame.width
+            node.constraints[4].constant = 10
         }
         
         // height
         if node.view.intrinsicContentSize.height > UIView.noIntrinsicMetric {
             node.constraints[5].constant = node.view.intrinsicContentSize.height
         } else {
-            node.constraints[5].constant = 10
+            targetAlignment = .fill
         }
         
-        switch stackAlignment {
+        switch targetAlignment {
         case .leading:
-            node.constraints[0].isActive = true
+            node.constraints[1].isActive = true
             node.constraints[2].isActive = false
             node.constraints[3].isActive = false
             
         case .center:
-            node.constraints[0].isActive = false
+            node.constraints[1].isActive = false
             node.constraints[2].isActive = true
             node.constraints[3].isActive = false
             
         case .trailing:
-            node.constraints[0].isActive = false
+            node.constraints[1].isActive = false
             node.constraints[2].isActive = false
             node.constraints[3].isActive = true
             
         case .fill:
-            node.constraints[0].isActive = true
+            node.constraints[1].isActive = true
             node.constraints[2].isActive = false
             node.constraints[3].isActive = true
             node.constraints[4].isActive = false
