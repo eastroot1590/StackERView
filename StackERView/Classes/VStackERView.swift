@@ -28,26 +28,23 @@ open class VStackERView: UIView, StackERView {
     open override var intrinsicContentSize: CGSize {
         return CGSize(width: stackInset.left + stackSize.width + stackInset.right, height: stackInset.top + stackSize.height + stackInset.bottom)
     }
-
-    open override func updateConstraints() {
-        for node in stack {
-            updateNodeConstraint(node)
-        }
-
-        super.updateConstraints()
-    }
     
     open override func layoutSubviews() {
         super.layoutSubviews()
         
         var newStackSize: CGSize = .zero
+        var nodeOrigin: CGPoint = CGPoint(x: 0, y: stackInset.top)
+        var ignoredFirstSpacing: Bool = false
         
         stack.forEach { node in
+            updateNodeFrame(node, origin: nodeOrigin, ignoreSpacing: ignoreFirstSpacing && !ignoredFirstSpacing)
+            
             let width = node.view.frame.width
-            let height = node.view.frame.height
 
             if !node.view.isHidden {
-                newStackSize = CGSize(width: max(width, newStackSize.width), height: newStackSize.height + node.spacing + height)
+                newStackSize = CGSize(width: max(width, newStackSize.width), height: node.view.frame.maxY - stackInset.top)
+                ignoredFirstSpacing = true
+                nodeOrigin.y = node.view.frame.maxY
             }
         }
         
@@ -57,89 +54,39 @@ open class VStackERView: UIView, StackERView {
     public func push(_ child: UIView, spacing: CGFloat = 0) {
         // add
         addSubview(child)
-        
-        // constraint
-        child.translatesAutoresizingMaskIntoConstraints = false
-
-        let top = stack.last?.view.bottomAnchor ?? self.topAnchor
-        var topSpacing = spacing
-        if stack.isEmpty {
-            if ignoreFirstSpacing {
-                topSpacing = stackInset.top
-            } else {
-                topSpacing += stackInset.top
-            }
-        }
-        
-        let topConstraint = child.topAnchor.constraint(equalTo: top, constant: topSpacing)
-        topConstraint.priority = UILayoutPriority(500)
-        topConstraint.isActive = true
-
-        let leadingConstraint = child.leadingAnchor.constraint(equalTo: leadingAnchor, constant: stackInset.left)
-        leadingConstraint.priority = UILayoutPriority(500)
-        
-        let trailingConstraint = child.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -stackInset.right)
-        trailingConstraint.priority = UILayoutPriority(500)
-        
-        let centerConstraint = child.centerXAnchor.constraint(equalTo: centerXAnchor)
-        centerConstraint.priority = UILayoutPriority(500)
-        centerConstraint.isActive = true
-
-        let widthConstraint = child.widthAnchor.constraint(equalToConstant: frame.width)
-        widthConstraint.priority = UILayoutPriority(500)
-        widthConstraint.isActive = true
-
-        let heightConstraint = child.heightAnchor.constraint(greaterThanOrEqualToConstant: 10)
-        heightConstraint.priority = UILayoutPriority(500)
-        heightConstraint.isActive = true
-        
-        
-        // append stack node
-        if stack.isEmpty, ignoreFirstSpacing {
-            stack.append(StackERNode(view: child, spacing: 0, constraints: [topConstraint, leadingConstraint, centerConstraint, trailingConstraint, widthConstraint, heightConstraint]))
-        } else {
-            stack.append(StackERNode(view: child, spacing: spacing, constraints: [topConstraint, leadingConstraint, centerConstraint, trailingConstraint, widthConstraint, heightConstraint]))
-        }
+        stack.append(StackERNode(view: child, spacing: spacing))
     }
     
-    open func updateNodeConstraint(_ node: StackERNode) {
+    open func updateNodeFrame(_ node: StackERNode, origin: CGPoint, ignoreSpacing: Bool) {
         var targetAlignment: StackERAlign = stackAlignment
+        var size: CGSize = .zero
         
         // width
         if node.view.intrinsicContentSize.width > UIView.noIntrinsicMetric {
-            node.constraints[4].constant = node.view.intrinsicContentSize.width
+            size.width = node.view.intrinsicContentSize.width
         } else {
             targetAlignment = .fill
         }
         
         // height
         if node.view.intrinsicContentSize.height > UIView.noIntrinsicMetric {
-            node.constraints[5].constant = node.view.intrinsicContentSize.height
+            size.height = node.view.intrinsicContentSize.height
         } else {
-            node.constraints[5].constant = 10
+            size.height = 10
         }
         
         switch targetAlignment {
         case .leading:
-            node.constraints[1].isActive = true
-            node.constraints[2].isActive = false
-            node.constraints[3].isActive = false
+            node.view.frame = CGRect(origin: CGPoint(x: stackInset.left, y: origin.y + (ignoreSpacing ? 0 : node.spacing)), size: size)
             
         case .center:
-            node.constraints[1].isActive = false
-            node.constraints[2].isActive = true
-            node.constraints[3].isActive = false
+            node.view.frame = CGRect(origin: CGPoint(x: frame.width / 2 - size.width / 2, y: origin.y + (ignoreSpacing ? 0 : node.spacing)), size: size)
             
         case .trailing:
-            node.constraints[1].isActive = false
-            node.constraints[2].isActive = false
-            node.constraints[3].isActive = true
+            node.view.frame = CGRect(origin: CGPoint(x: frame.width - stackInset.right - size.width, y: origin.y + (ignoreSpacing ? 0 : node.spacing)), size: size)
             
         case .fill:
-            node.constraints[1].isActive = true
-            node.constraints[2].isActive = false
-            node.constraints[3].isActive = true
-            node.constraints[4].isActive = false
+            node.view.frame = CGRect(origin: CGPoint(x: stackInset.left, y: origin.y + (ignoreSpacing ? 0 : node.spacing)), size: CGSize(width: frame.width - stackInset.left - stackInset.right, height: size.height))
         }
     }
 }
