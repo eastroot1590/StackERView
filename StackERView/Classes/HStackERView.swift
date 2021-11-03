@@ -27,7 +27,7 @@ open class HStackERView: UIView, StackERView {
     
     let separatorLayer = CAShapeLayer()
     
-    var separatorType: StackERSeparatorType = .none {
+    open var separatorType: StackERSeparatorType = .none {
         didSet {
             layoutStack()
         }
