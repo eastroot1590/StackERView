@@ -27,5 +27,7 @@ protocol StackERView: UIView {
     
     func push(_ child: UIView, spacing: CGFloat)
     
+    func layoutStack()
+    
     func updateNodeFrame(_ node: StackERNode, origin: CGPoint, ignoreSpacing: Bool)
 }

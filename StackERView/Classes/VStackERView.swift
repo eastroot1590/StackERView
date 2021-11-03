@@ -29,9 +29,25 @@ open class VStackERView: UIView, StackERView {
         return CGSize(width: stackInset.left + stackSize.width + stackInset.right, height: stackInset.top + stackSize.height + stackInset.bottom)
     }
     
+    open override func updateConstraints() {
+        layoutStack()
+        
+        super.updateConstraints()
+    }
+    
     open override func layoutSubviews() {
         super.layoutSubviews()
         
+        layoutStack()
+    }
+    
+    public func push(_ child: UIView, spacing: CGFloat = 0) {
+        // add
+        addSubview(child)
+        stack.append(StackERNode(view: child, spacing: spacing))
+    }
+    
+    func layoutStack() {
         var newStackSize: CGSize = .zero
         var nodeOrigin: CGPoint = CGPoint(x: 0, y: stackInset.top)
         var ignoredFirstSpacing: Bool = false
@@ -51,13 +67,7 @@ open class VStackERView: UIView, StackERView {
         stackSize = newStackSize
     }
     
-    public func push(_ child: UIView, spacing: CGFloat = 0) {
-        // add
-        addSubview(child)
-        stack.append(StackERNode(view: child, spacing: spacing))
-    }
-    
-    open func updateNodeFrame(_ node: StackERNode, origin: CGPoint, ignoreSpacing: Bool) {
+    func updateNodeFrame(_ node: StackERNode, origin: CGPoint, ignoreSpacing: Bool) {
         var targetAlignment: StackERAlign = stackAlignment
         var size: CGSize = .zero
         
