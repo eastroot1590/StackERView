@@ -43,7 +43,9 @@ label.text = "Hello StackERView"
 stack.push(label)
 ```
 
-<center><img src="https://user-images.githubusercontent.com/71330311/140025738-2dff38c4-b9fb-444a-b015-4368cc509ad8.png" height="700"></center>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/71330311/140025738-2dff38c4-b9fb-444a-b015-4368cc509ad8.png" height="700">
+</p>
 
 can `push` image too. and you can set space between current pushing view and old view. this can be deferent every stack nodes.
 
@@ -52,7 +54,9 @@ let image = UIImageView(image: UIImage(named: "sample"))
 stack.push(image, spacing: 50)
 ```
 
-<center><img src="https://user-images.githubusercontent.com/71330311/140026625-9bed6c1e-49c1-4ae7-9bfa-298ae9137dcf.png" height="700"></center>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/71330311/140026625-9bed6c1e-49c1-4ae7-9bfa-298ae9137dcf.png" height="700">
+</p>
 
 ### HStackERView
 
@@ -69,7 +73,9 @@ NSLayoutConstraint.activate([
 ])
 ```
 
-<center><img src="https://user-images.githubusercontent.com/71330311/140026698-13c835c3-f1f5-42b8-bd96-06abbc58fee2.png" height="700"></center>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/71330311/140026698-13c835c3-f1f5-42b8-bd96-06abbc58fee2.png" height="700">
+</p>
 
 both of StackERView can add separator between nodes
 
@@ -77,7 +83,9 @@ both of StackERView can add separator between nodes
 stack.separatorType = .line
 ```
 
-<center><img src="https://user-images.githubusercontent.com/71330311/140026858-f3a90f1d-4c1a-4d7b-9df5-32c09297ab53.png" height="700"></center>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/71330311/140026858-f3a90f1d-4c1a-4d7b-9df5-32c09297ab53.png" height="700">
+</p>
 
 `StackERView` also can add another `StackERView`.
 
@@ -92,7 +100,9 @@ for _ in 0 ..< 5 {
 }
 ```
 
-<center><img src="https://user-images.githubusercontent.com/71330311/140026903-512f692c-6aee-4c9e-af1d-61f2fe2e5f6b.png" height="700"></center>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/71330311/140026903-512f692c-6aee-4c9e-af1d-61f2fe2e5f6b.png" height="700">
+</p>
 
 ### StackERScrollView
 
