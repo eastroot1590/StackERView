@@ -8,6 +8,7 @@
 import UIKit
 
 open class HStackERView: UIView, StackERView {
+    
     open var stackSize: CGSize = .zero {
         didSet {
             if !stackSize.equalTo(oldValue) {
@@ -24,8 +25,40 @@ open class HStackERView: UIView, StackERView {
     
     var stack: [StackERNode] = []
     
+    let separatorLayer = CAShapeLayer()
+    
+    var separatorType: StackERSeparatorType = .none {
+        didSet {
+            layoutStack()
+        }
+    }
+    
+    open var separatorInset: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    
+    open var separatorColor: CGColor? {
+        get {
+            separatorLayer.strokeColor
+        }
+        set {
+            separatorLayer.strokeColor = newValue
+        }
+    }
+    
     open override var intrinsicContentSize: CGSize {
         return CGSize(width: stackInset.left + stackSize.width + stackInset.right, height: stackInset.top + stackSize.height + stackInset.bottom)
+    }
+    
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        separatorColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
+        
+        separatorLayer.lineWidth = 0.5
+        layer.addSublayer(separatorLayer)
+    }
+    
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     open override func updateConstraints() {
@@ -51,18 +84,32 @@ open class HStackERView: UIView, StackERView {
         var nodeOrigin: CGPoint = CGPoint(x: stackInset.left, y: 0)
         var ignoredFirstSpacing: Bool = false
         
+        let separatorPath = UIBezierPath()
+        var frontView: UIView? = nil
+        
         stack.forEach { node in
+            guard !node.view.isHidden else {
+                return
+            }
             updateNodeFrame(node, origin: nodeOrigin, ignoreSpacing: ignoreFirstSpacing && !ignoredFirstSpacing)
             
             let height = node.view.frame.height
-
-            if !node.view.isHidden {
-                newStackSize = CGSize(width: node.view.frame.maxX - stackInset.left, height: max(height, newStackSize.height))
-                ignoredFirstSpacing = true
-                nodeOrigin.x = node.view.frame.maxX
+            
+            newStackSize = CGSize(width: node.view.frame.maxX - stackInset.left, height: max(height, newStackSize.height))
+            ignoredFirstSpacing = true
+            
+            if let front = frontView {
+                let x = (front.frame.maxX + node.view.frame.minX) / 2
+                
+                separatorPath.move(to: CGPoint(x: x, y: separatorInset.top))
+                separatorPath.addLine(to: CGPoint(x: x, y: frame.height - separatorInset.bottom))
             }
+            
+            frontView = node.view
+            nodeOrigin.x = node.view.frame.maxX
         }
         
+        separatorLayer.path = separatorType == .none ? nil : separatorPath.cgPath
         stackSize = newStackSize
     }
     

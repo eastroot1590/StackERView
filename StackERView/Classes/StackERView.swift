@@ -14,6 +14,11 @@ public enum StackERAlign {
     case fill
 }
 
+public enum StackERSeparatorType {
+    case none
+    case line
+}
+
 protocol StackERView: UIView {
     var stackSize: CGSize { get set }
     
@@ -25,9 +30,15 @@ protocol StackERView: UIView {
     
     var stack: [StackERNode] { get }
     
-    func push(_ child: UIView, spacing: CGFloat)
+    var separatorLayer: CAShapeLayer { get }
     
-    func layoutStack()
+    var separatorType: StackERSeparatorType { get set }
+    
+    var separatorInset: UIEdgeInsets { get set }
+    
+    var separatorColor: CGColor? { get set }
+    
+    func push(_ child: UIView, spacing: CGFloat)
     
     func updateNodeFrame(_ node: StackERNode, origin: CGPoint, ignoreSpacing: Bool)
 }
