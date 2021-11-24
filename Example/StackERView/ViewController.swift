@@ -17,7 +17,6 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         let stack = HStackERView()
-        stack.separatorType = .line
         stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
         NSLayoutConstraint.activate([

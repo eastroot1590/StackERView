@@ -14,29 +14,23 @@ public enum StackERAlign {
     case fill
 }
 
-public enum StackERSeparatorType {
-    case none
-    case line
+public enum StackERDistribution {
+    case fill
+    case fillEqually
 }
 
 protocol StackERView: UIView {
-    var stackSize: CGSize { get set }
+    var stackSize: CGSize { get }
     
     var stackInset: UIEdgeInsets { get set }
     
     var stackAlignment: StackERAlign { get set }
     
+    var stackDistribution: StackERDistribution { get set }
+    
     var ignoreFirstSpacing: Bool { get set }
     
     var stack: [StackERNode] { get }
-    
-    var separatorLayer: CAShapeLayer { get }
-    
-    var separatorType: StackERSeparatorType { get set }
-    
-    var separatorInset: UIEdgeInsets { get set }
-    
-    var separatorColor: CGColor? { get set }
     
     func push(_ child: UIView, spacing: CGFloat)
     

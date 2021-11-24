@@ -9,68 +9,71 @@ import UIKit
 
 open class VStackERView: UIView, StackERView {
     
-    open var stackSize: CGSize = .zero {
-        didSet {
-            if !stackSize.equalTo(oldValue) {
-                invalidateIntrinsicContentSize()
+    open var stackSize: CGSize {
+        var size: CGSize = .zero
+        var pivotOrigin: CGPoint = CGPoint(x: 0, y: stackInset.top)
+        var ignoredFirstSpacing: Bool = false
+        let maxHeight = findMaxHeight()
+        
+        stack.forEach { node in
+            switch stackDistribution {
+            case .fill:
+                updateNodeFrame(node, origin: pivotOrigin, ignoreSpacing: ignoreFirstSpacing && !ignoredFirstSpacing)
+            case .fillEqually:
+                updateNodeFrameForSameHeight(node, height: maxHeight, origin: pivotOrigin, ignoreSpacing: ignoreFirstSpacing && !ignoredFirstSpacing)
+            }
+            
+            let width = node.view.frame.width
+            
+            if !node.view.isHidden {
+                size = CGSize(width: max(width, size.width), height: node.view.frame.maxY - stackInset.top)
+                ignoredFirstSpacing = true
+                pivotOrigin.y = node.view.frame.maxY
             }
         }
+        
+        return size
     }
     
     open var stackInset: UIEdgeInsets = .zero
     
     open var stackAlignment: StackERAlign = .center
     
+    open var stackDistribution: StackERDistribution = .fill
+    
     open var ignoreFirstSpacing: Bool = true
     
     var stack: [StackERNode] = []
     
-    let separatorLayer = CAShapeLayer()
-    
-    open var separatorType: StackERSeparatorType = .none {
-        didSet {
-            layoutStack()
-        }
-    }
-    
-    open var separatorInset: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    
-    open var separatorColor: CGColor? {
-        get {
-            separatorLayer.strokeColor
-        }
-        set {
-            separatorLayer.strokeColor = newValue
-        }
-    }
-    
     open override var intrinsicContentSize: CGSize {
-        return CGSize(width: stackInset.left + stackSize.width + stackInset.right, height: stackInset.top + stackSize.height + stackInset.bottom)
-    }
-    
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
+        let content = stackSize
         
-        separatorColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
+        let width = stackInset.left + content.width + stackInset.right
+        let height = stackInset.top + content.height + stackInset.bottom
         
-        separatorLayer.lineWidth = 0.5
-        layer.addSublayer(separatorLayer)
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open override func updateConstraints() {
-        layoutStack()
-        
-        super.updateConstraints()
+        return CGSize(width: width, height: height)
     }
     
     open override func layoutSubviews() {
         super.layoutSubviews()
         
-        layoutStack()
+        var pivotOrigin: CGPoint = CGPoint(x: stackInset.left, y: stackInset.top)
+        var ignoredFirstSpacing: Bool = false
+        let maxHeight = findMaxHeight()
+        
+        stack.forEach { node in
+            switch stackDistribution {
+            case .fill:
+                updateNodeFrame(node, origin: pivotOrigin, ignoreSpacing: ignoreFirstSpacing && !ignoredFirstSpacing)
+            case .fillEqually:
+                updateNodeFrameForSameHeight(node, height: maxHeight, origin: pivotOrigin, ignoreSpacing: ignoreFirstSpacing && !ignoredFirstSpacing)
+            }
+
+            if !node.view.isHidden {
+                ignoredFirstSpacing = true
+                pivotOrigin.y = node.view.frame.maxY
+            }
+        }
     }
     
     public func push(_ child: UIView, spacing: CGFloat = 0) {
@@ -79,48 +82,17 @@ open class VStackERView: UIView, StackERView {
         stack.append(StackERNode(view: child, spacing: spacing))
     }
     
-    func layoutStack() {
-        var newStackSize: CGSize = .zero
-        var nodeOrigin: CGPoint = CGPoint(x: 0, y: stackInset.top)
-        var ignoredFirstSpacing: Bool = false
-        
-        let separatorPath = UIBezierPath()
-        var frontView: UIView? = nil
-        
-        stack.forEach { node in
-            guard !node.view.isHidden else {
-                return
-            }
-            
-            updateNodeFrame(node, origin: nodeOrigin, ignoreSpacing: ignoreFirstSpacing && !ignoredFirstSpacing)
-            
-            let width = node.view.frame.width
-            
-            newStackSize = CGSize(width: max(width, newStackSize.width), height: node.view.frame.maxY - stackInset.top)
-            ignoredFirstSpacing = true
-            
-            if let front = frontView {
-                let y = (front.frame.maxY + node.view.frame.minY) / 2
-                
-                separatorPath.move(to: CGPoint(x: separatorInset.left, y: y))
-                separatorPath.addLine(to: CGPoint(x: frame.width - separatorInset.right, y: y))
-            }
-            
-            frontView = node.view
-            nodeOrigin.y = node.view.frame.maxY
-        }
-        
-        separatorLayer.path = separatorType == .none ? nil : separatorPath.cgPath
-        stackSize = newStackSize
-    }
-    
-    func updateNodeFrame(_ node: StackERNode, origin: CGPoint, ignoreSpacing: Bool) {
+    open func updateNodeFrame(_ node: StackERNode, origin: CGPoint, ignoreSpacing: Bool) {
         var targetAlignment: StackERAlign = stackAlignment
         var size: CGSize = .zero
+        
+        let systemLayoutSize = node.view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         
         // width
         if node.view.intrinsicContentSize.width > UIView.noIntrinsicMetric {
             size.width = node.view.intrinsicContentSize.width
+        } else if systemLayoutSize.width > 10 {
+            size.width = systemLayoutSize.width
         } else {
             targetAlignment = .fill
         }
@@ -128,6 +100,8 @@ open class VStackERView: UIView, StackERView {
         // height
         if node.view.intrinsicContentSize.height > UIView.noIntrinsicMetric {
             size.height = node.view.intrinsicContentSize.height
+        } else if systemLayoutSize.height > 10 {
+            size.height = systemLayoutSize.height
         } else {
             size.height = 10
         }
@@ -146,4 +120,65 @@ open class VStackERView: UIView, StackERView {
             node.view.frame = CGRect(origin: CGPoint(x: stackInset.left, y: origin.y + (ignoreSpacing ? 0 : node.spacing)), size: CGSize(width: frame.width - stackInset.left - stackInset.right, height: size.height))
         }
     }
+    
+    open func updateNodeFrameForSameHeight(_ node: StackERNode, height: CGFloat, origin: CGPoint, ignoreSpacing: Bool) {
+        var targetAlignment: StackERAlign = stackAlignment
+        var width: CGFloat = 0
+        
+        let systemLayoutSize = node.view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        
+        // width
+        if node.view.intrinsicContentSize.width > UIView.noIntrinsicMetric {
+            width = node.view.intrinsicContentSize.width
+        } else if systemLayoutSize.width > 10 {
+            width = systemLayoutSize.width
+        } else {
+            targetAlignment = .fill
+        }
+        
+        switch targetAlignment {
+        case .leading:
+            node.view.frame = CGRect(origin: CGPoint(x: stackInset.left, y: origin.y + (ignoreSpacing ? 0 : node.spacing)), size: CGSize(width: width, height: height))
+            
+        case .center:
+            node.view.frame = CGRect(origin: CGPoint(x: frame.width / 2 - width / 2, y: origin.y + (ignoreSpacing ? 0 : node.spacing)), size: CGSize(width: width, height: height))
+            
+        case .trailing:
+            node.view.frame = CGRect(origin: CGPoint(x: frame.width - stackInset.right - width, y: origin.y + (ignoreSpacing ? 0 : node.spacing)), size: CGSize(width: width, height: height))
+            
+        case .fill:
+            node.view.frame = CGRect(origin: CGPoint(x: stackInset.left, y: origin.y + (ignoreSpacing ? 0 : node.spacing)), size: CGSize(width: frame.width - stackInset.left - stackInset.right, height: height))
+        }
+    }
+    
+    open func updateNodeOrigin(_ node: StackERNode, origin: CGPoint, ignoreSpacing: Bool) {
+        let size = node.view.frame.size
+        
+        switch stackAlignment {
+        case .leading:
+            node.view.frame.origin = CGPoint(x: stackInset.left, y: origin.y + (ignoreSpacing ? 0 : node.spacing))
+            
+        case .center:
+            node.view.frame.origin = CGPoint(x: frame.width / 2 - size.width / 2, y: origin.y + (ignoreSpacing ? 0 : node.spacing))
+            
+        case .trailing:
+            node.view.frame.origin = CGPoint(x: frame.width - stackInset.right - size.width, y: origin.y + (ignoreSpacing ? 0 : node.spacing))
+            
+        case .fill:
+            node.view.frame.origin = CGPoint(x: stackInset.left, y: origin.y + (ignoreSpacing ? 0 : node.spacing))
+        }
+    }
+    
+    func findMaxHeight() -> CGFloat {
+        var maxHeight: CGFloat = 0
+        
+        stack.forEach { node in
+            let systemLayoutSize = node.view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+            
+            maxHeight = max(systemLayoutSize.height, maxHeight)
+        }
+        
+        return maxHeight
+    }
+    
 }
